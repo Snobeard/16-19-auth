@@ -1,4 +1,4 @@
-# 19: Basic Authentication
+# 19: Basic Authentication 
 Description: **Lab 19 of Code Fellows JavaScript 401d19** </br>
 Author: **Matthew LeBlanc** </br>
 Date: **12/21/17**
