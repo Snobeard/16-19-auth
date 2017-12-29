@@ -11,7 +11,7 @@
     "lint": "eslint ./",
     "dbon": "mkdir -p ./db && mongod --dbpath ./db",
     "dboff": "killall mongod",
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "author": "Matthew LeBlanc",
   "license": "ISC",
