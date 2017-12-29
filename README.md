@@ -1,50 +1,74 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 17: Authentication
-======
+# 19: Basic Authentication
+Description: **Lab 19 of Code Fellows JavaScript 401d19** </br>
+Author: **Matthew LeBlanc** </br>
+Date: **12/21/17**
 
-## Submission Instructions
-* Work in a fork of this repository
-* Work in a branch on your fork
-* Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-* Open a pull request to this repository
-* Submit on canvas a question and observation, how long you spent, and a link to your pull request
+## Features
+This lab features creating a login account for a server with a hash algorithm and a cryptic algorithm, which also includes a profile, vehicle model, and image asset management.
 
-## Resources
-* [express docs](http://expressjs.com/en/4x/api.html)
-* [mongoosse guide](http://mongoosejs.com/docs/guide.html)
-* [mongoosse api docs](http://mongoosejs.com/docs/api.html)
+## Tech/Framework Used
+- node.js
+- javascript
+- mongodb
+- Visual Studio Code
 
-## Configuration 
-Configure the root of your repository with the following files and directories. Thoughfully name and organize any aditional configuration or module files.
-* **README.md** - contains documentation
-* **.env** - contains env variables **(should be git ignored)**
-* **.gitignore** - contains a [robust](http://gitignore.io) `.gitignore` file 
-* **.eslintrc** - contains the course linter configuratoin
-* **.eslintignore** - contains the course linter ignore configuration
-* **package.json** - contains npm package config
-  * create a `lint` script for running eslint
-  * create a `test` script for running tests
-  * create a `start` script for running your server
-  * create `dbon` and `dboff` scripts for managing the mongo daemon
-* **db/** - contains mongodb files **(should be git ignored)**
-* **lib/** - contains module definitions
-* **model/** - contains module definitions
-* **route/** - contains module definitions
-* **\_\_test\_\_/** - contains test modules
+## Requirements
+- node.js
+- mongodb
 
-## Feature Tasks  
-For this assignment you will be building a RESTful HTTP server with basic authentication useing express.
 
-#### Account
-Create a user `Account` model that keeps track of a username, email, hashed password, and token seed. The model should be able to regenorate tokens using json web token. 
+## Usage
+1. `cd` into the lab-matt folder
+2. `npm install` the required dependency packages
+3. `.env` values are automatically setup for jest testing</br>
+they will be required for non-testing purposes
+```
+process.env.PORT = <port>;
+process.env.MONGODB_URI = 'mongodb://localhost/<database_name>';
+process.env.CLOUD_SALT = '<random mixture of numbers and letters>';
+```
+4. `npm run dbon` to initiate the mongo database
+5. `npm run test` to run the jest testing
 
-#### Server Endpoints
-* `POST /signup` 
-  * pass data as stringifed JSON in the body of a **POST** request to create a new account
-  * on success respond with a 200 status code and an authentication token
-  * on failure due to a bad request send a 400 status code
+## Dependencies
+2. `express`
+3. `faker`
+4. `http-errors`
+5. `mongoose`
+6. `superagent`
+7. `winston`
+8. `bcrypt`
+9. `body-parser`
+10. `jsonwebtoken`
+##### <u>DEV</u>
+1. `eslint`
+2. `jest`
+
+## Server Endpoints
+- `POST /signup` - Create an account with a name, password, and email
 
 ## Tests
-* POST should test for 200, 400, and 409 (if any keys are unique)
-
-## Documentation
-In the README.md write documention for starting your server and makeing requests to each endpoint it provides. The documentaion should describe how the server would respond to valid and invalid requests.
+`POST /signup` => 200 status code if no issues and a token was created </br>
+`POST /signup` => 400 status code if the data is incomplete </br>
+`POST /signup` => 409 status code if the unique data is duplicated</br>
+`GET /login` => 200 status code and a token if no issues </br>
+`GET /login` => 400 status code if there was a bad request </br>
+`GET /login` => 401 status code if there was a bad token </br>
+`GET /login` => 404 status code if the account was not found </br>
+`POST /vehicles` => 200 status code if no issues and data was returned </br>
+`POST /vehicles` => 400 status code if there was an incomplete request </br>
+`POST /vehicles` => 401 status code if there was a bad token </br>
+`POST /vehicles` => 404 status code if there was a bad url request </br>
+`GET /vehicles` => 200 status code if vehicle data based on id is returned </br>
+`GET /vehicles` => 401 status code if using a bad token </br>
+`GET /vehicles` => 404 status code if there is a bad vehicle id, (not found) </br>
+`GET /profiles` => 200 status code if no issues and profile data was returned </br>
+`POST /images` => 200 status code and a json representation of the resource </br>
+`POST /images` => 400 status code due to a bad request </br>
+`POST /images` => 401 status code due to a bad token </br>
+`GET /images/:id` => 200 status code and a json representation of the resource </br>
+`GET /images/:id` => 404 status code if there is a bad id given </br>
+`GET /images/:id` => 401 status code if there is a bad token </br>
+`DELETE /images/:id` => 204 status code if the image was found and removed </br>
+`DELETE /images/:id` => 404 status code if there was no matching id </br>
+`DELETE /images/:id` => 401 status code if there is a bad token </br>
