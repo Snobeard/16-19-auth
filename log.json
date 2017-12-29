@@ -5054,3 +5054,8 @@
 {"level":"verbose","message":"\n--USER: Nichole.Price9\n--PASS: vero modi quam adipisci praesentium quis repudiandae sed accusamus nesciunt\n--EMAIL: Gail.Denesik22@gmail.com\n","timestamp":"2017-12-29T03:26:39.501Z"}
 {"level":"verbose","message":"Processing: POST On: /profiles","timestamp":"2017-12-29T03:26:39.525Z"}
 {"level":"info","message":"Server is shutting down","timestamp":"2017-12-29T03:26:39.536Z"}
+{"level":"verbose","message":"Server is listening on port: undefined","timestamp":"2017-12-29T03:30:02.485Z"}
+{"level":"verbose","message":"Server is listening on port: 3000","timestamp":"2017-12-29T03:30:29.051Z"}
+{"level":"verbose","message":"Server is listening on port: 3000","timestamp":"2017-12-29T03:30:58.250Z"}
+{"level":"verbose","message":"Server is listening on port: 3000","timestamp":"2017-12-29T03:32:44.958Z"}
+{"level":"verbose","message":"Server is listening on port: 3000","timestamp":"2017-12-29T03:36:20.940Z"}
