@@ -60,6 +60,6 @@ Account.create = (username, password, email) => {
   return bcrypt.hash(password, HASH_SALT_ROUNDS)
     .then(passwordHash => {
       let tokenSeed = crypto.randomBytes(64).toString('hex');
-      return new Account({username, email, passwordHash, tokenSeed}).save(); // TODO - why is this breaking the post request?
+      return new Account({username, email, passwordHash, tokenSeed}).save();
     });
 };
